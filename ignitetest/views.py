@@ -17,15 +17,17 @@ def home(request):
 	if request.method == 'POST':
 		scForm = SchoolForm(request.POST)
 		stForm = StudentForm(request.POST)
-		if scForm.is_valid() and not stForm.is_valid():
+		sc = scForm.is_valid()
+		st = stForm.is_valid()
+		if sc and not ss:
 			scForm.save()
 			msg = 'You have successfully registered'
 			scForm = SchoolForm()
-		elif stForm.is_valid() and not scForm.is_valid():
+		elif st and not sc:
 			stForm.save()
 			msg = 'You have successfully registered'
 			stForm = StudentForm()
-		elif stForm.is_valid() and scForm.is_valid():
+		elif st and sc:
 			scForm.save()
 			stForm.save()
 			msg = 'You have successfully registered'
@@ -40,33 +42,3 @@ def home(request):
 			'msg' : msg
 		}
 	return render(request, 'home.html', to_return)
-
-def formview(request):
-
-	if request.method == 'POST':
-		scForm = SchoolForm(request.POST)
-		if scForm.is_valid():
-			scForm.save()
-	else:
-		scForm = SchoolForm()
-	to_return={
-			'scForm':scForm
-		}
-	
-	return render(request, 'form.html', to_return)
-
-def generate_spreadsheet(request):
-	dat = Student.objects.all()
-	print dat
-
-	#ballots = dat.ballots.all()
-	
-	response = render_to_response("registration.html", {
-		#'ballots': ballots.items(),
-		#'votes': votes,
-	})
-	filename = "registrations%s.xls" % (dat.year_num)
-	response['Content-Disposition'] = 'attachment; filename='+filename
-	response['Content-Type'] = 'application/vnd.ms-excel; charset=utf-8'
-
-	return response
