@@ -85,6 +85,7 @@ INSTALLED_APPS = (
     'south',
     'userprofile',
     'ignitetest',
+    'registration'
 )
 
 # A sample logging configuration. The only tangible logging
