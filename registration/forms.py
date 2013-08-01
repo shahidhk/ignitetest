@@ -6,7 +6,6 @@ class StudentForm(forms.ModelForm):
 		super(StudentForm, self).__init__(*args, **kwargs)
 		for field_name in self.fields:
 			field = self.fields.get(field_name)
-			print type(field.widget)
 			if field:
 				if type(field.widget) in (forms.TextInput, forms.DateInput):
 					field.widget = forms.TextInput(attrs={'placeholder': field.label, 'class': 'input-xlarge'})

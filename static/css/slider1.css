@@ -181,7 +181,7 @@
 .demo-1 [data-icon]:after {
     content: attr(data-icon);
     font-family: 'AnimalsNormal';
-	color: #999;
+	color: #ffffff;
 	text-shadow: 0 0 1px #999;
 	position: absolute;
 	width: 220px;
