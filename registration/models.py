@@ -34,3 +34,12 @@ class School(models.Model):
 
 	def __unicode__(self):
 		return self.name
+
+class Contact(models.Model):
+	name = models.CharField(max_length=200)
+	email = models.EmailField()
+	www = models.URLField(blank=True,null=True)
+	body = models.TextField(max_length=1000)
+
+	def __unicode__(self):
+		return self.name

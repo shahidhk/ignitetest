@@ -9,6 +9,10 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'ignitetest.views.home', name='home'),
+    url(r'^contact/', 'ignitetest.views.contact', name='contact'),
+    url(r'^student/', 'ignitetest.views.studentsave', name='student'),
+    url(r'^school/', 'ignitetest.views.schoolsave', name='school'),
+
     # url(r'^ignitetest/', include('ignitetest.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

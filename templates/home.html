@@ -93,9 +93,9 @@
 	<!-- start: 1st Page - Home -->
 	<div id="home">
 										{% if msg %}
-											<div class="alert alert-success">  
+											<div class="alert alert-{{ alert_type }}">  
   												<a class="close" data-dismiss="alert">×</a>  
-  												<strong>Awesome!</strong> {{ msg }}  
+  												<strong>{{ alert_type }}!</strong> {{ msg }}  
 											</div>
 										{% endif %}
 		<div class="demo-1">
@@ -315,7 +315,7 @@
 							<div class="color-cccddd">
 								<h3>For Schools</h3>
 								<h4><span class="price">Register with us</span> <span class="time">You can add multiple students</span></h4>
-									<form class='form-inline' action="" method='POST' id='sc_Form'>
+									<form class='form-inline' action="/school/" method='POST' id='sc_Form'>
 										
 										{% csrf_token %}
 										{% if scForm.non_field_errors.0 %}
@@ -352,7 +352,7 @@
 							<div class="color-666777">
 								<h3>For Students</h3>
 								<h4><span class="price">Apply directly</span> <span class="time">You can also contact your school</span></h4>
-									<form class='form-inline' action="" method='POST' id='st_Form'>
+									<form class='form-inline' action="/student/" method='POST' id='st_Form'>
 										{% csrf_token %}
 										{% if stForm.non_field_errors.0 %}
 											<div class="alert-message block-message error">
@@ -536,8 +536,8 @@
 					<!-- start: Contact Form -->
 					<div id="contact-form">
 
-						<form method="post" action="">
-							
+						<form method="post" action="/contact/">
+							{% csrf_token %}
 							<fieldset>
 								
 								<input tabindex="4" id="name" name="name" type="text" value="" class="span12" placeholder="Name: ..." >

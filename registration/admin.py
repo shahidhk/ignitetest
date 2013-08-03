@@ -9,5 +9,9 @@ class StudentAdmin(admin.ModelAdmin):
 class SchoolAdmin(admin.ModelAdmin):
     actions = [export_as_xls]
 
+class ContactAdmin(admin.ModelAdmin):
+    actions = [export_as_xls]
+
 admin.site.register(Student, StudentAdmin)
 admin.site.register(School, SchoolAdmin)
+admin.site.register(Contact, ContactAdmin)
