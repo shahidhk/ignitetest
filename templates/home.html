@@ -24,6 +24,9 @@
 	<meta property="og:image" content=""/>
 	<!-- end: Facebook Open Graph -->
 
+	<!-- start: Favicon -->
+	<link rel="shortcut icon" href="{% static 'img/icons/favicon.ico' %}" type="image/x-icon" />
+
     <!-- start: CSS -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet">
@@ -151,8 +154,8 @@
 				</div><!-- /sl-slider -->
 
 				<nav id="nav-arrows" class="nav-arrows">
-					<span class="nav-arrow-prev">Previous</span>
-					<span class="nav-arrow-next">Next</span>
+					<span class="nav-arrow-prev" id="nav-prev">Previous</span>
+					<span class="nav-arrow-next" id="nav-next">Next</span>
 				</nav>
 
 				<nav id="nav-dots" class="nav-dots">
@@ -668,6 +671,13 @@
 <script type="text/javascript" src="{% static 'js/jquery.flot.resize.min.js' %}"></script>
 
 <script defer="defer" src="{% static 'js/custom.js' %}"></script>
+<script type="text/javascript">
+	var myVar=setInterval(function(){myTimer()},5000);
+	function myTimer()
+	{
+		document.getElementById("nav-next").click();
+	}
+</script>
 <script type="text/javascript">	
 	$(function() {
 	
